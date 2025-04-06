@@ -1,12 +1,10 @@
 # App Icon Editor
 
-iOS/Android向けのアプリアイコンを簡単に作成し、ダウンロードできます。
-
 ## Features
 
-- 複数プラットフォーム対応
-  - iOS (1024×1024px, 角丸正方形)
-  - Android (512×512px, 円形)
+- iOS, Android に対応
+  - iOS (1024×1024px)
+  - Android (512×512px)
 - リアルタイムプレビュー
   - ホットリロード
   - プラットフォームごとの形状に合わせたプレビュー
@@ -75,4 +73,4 @@ class IconContent extends StatelessWidget {
 
 - Flutter: 3.29.2
 - Dart: 3.3.2
-- プラットフォーム: Web（開発環境）
+- プラットフォーム: Web
