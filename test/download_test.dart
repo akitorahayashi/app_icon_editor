@@ -79,8 +79,7 @@ void main() {
               exportMessage: null,
               currentSize: 1024,
               onExport: () {},
-              getExportDescription: () =>
-                  '${currentPlatform}アプリ用のアイコンをエクスポートします',
+              getExportDescription: () => '$currentPlatformアプリ用のアイコンをエクスポートします',
             ),
           ),
         ),
@@ -101,8 +100,7 @@ void main() {
               exportMessage: null,
               currentSize: 512,
               onExport: () {},
-              getExportDescription: () =>
-                  '${currentPlatform}アプリ用のアイコンをエクスポートします',
+              getExportDescription: () => '$currentPlatformアプリ用のアイコンをエクスポートします',
             ),
           ),
         ),
