@@ -2,13 +2,14 @@ name: Flutter CI
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    
     steps:
       - uses: actions/checkout@v4
       
@@ -33,18 +34,8 @@ jobs:
       
       # Run tests
       - name: Run tests
-        run: flutter test --coverage
+        run: flutter test
       
       # Build web version
       - name: Build web
-        run: flutter build web --release
-      
-      # Upload coverage reports
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: coverage/lcov.info
-          flags: unittests
-          name: codecov-umbrella
-          fail_ci_if_error: true 
+        run: flutter build web --release 
