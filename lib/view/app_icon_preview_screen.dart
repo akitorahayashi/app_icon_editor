@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:app_icon_editor/util/export_util.dart';
 import 'package:app_icon_editor/icon_content.dart';
-import 'package:app_icon_editor/view/platform_preview/ios_preview.dart';
-import 'package:app_icon_editor/view/platform_preview/android_preview.dart';
-import 'package:app_icon_editor/view/download_section.dart';
+import 'package:app_icon_editor/view/component/platform_preview/ios_preview.dart';
+import 'package:app_icon_editor/view/component/platform_preview/android_preview.dart';
+import 'package:app_icon_editor/view/component/download_section.dart';
 
 /// アイコンプレビューのメイン画面
 class AppIconPreviewScreen extends StatefulWidget {

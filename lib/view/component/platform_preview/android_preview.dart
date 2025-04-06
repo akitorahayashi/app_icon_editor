@@ -55,7 +55,7 @@ class AndroidPreview extends StatelessWidget {
                         child: Container(
                           width: previewSize,
                           height: previewSize,
-                          color: Colors.black.withOpacity(0.05),
+                          color: Colors.black.withAlpha(13),
                           child: iconContent is IconContent
                               ? IconContent(size: previewSize)
                               : iconContent,
@@ -67,7 +67,7 @@ class AndroidPreview extends StatelessWidget {
                       child: Container(
                         width: previewSize,
                         height: previewSize,
-                        color: Colors.black.withOpacity(0.05),
+                        color: Colors.black.withAlpha(13),
                         child: iconContent is IconContent
                             ? IconContent(size: previewSize)
                             : iconContent,

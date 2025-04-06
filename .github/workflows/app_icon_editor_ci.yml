@@ -2,36 +2,49 @@ name: Flutter CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, master ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, master ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
       # Set up Flutter
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.16.0'
+          flutter-version: '3.19.3'
           channel: 'stable'
+          cache: true
       
       # Get dependencies
-      - run: flutter pub get
+      - name: Install dependencies
+        run: flutter pub get
       
       # Verify formatting
-      - run: flutter format --set-exit-if-changed .
+      - name: Check formatting
+        run: dart format --output=none --set-exit-if-changed .
       
       # Analyze the Dart code
-      - run: flutter analyze
-      
-      # Make shell script executable (important for tests)
-      - run: chmod +x export_icon.sh
+      - name: Analyze code
+        run: flutter analyze --fatal-infos
       
       # Run tests
-      - run: flutter test
+      - name: Run tests
+        run: flutter test --coverage
       
-      # Build web version (to make sure it compiles)
-      - run: flutter build web 
+      # Build web version
+      - name: Build web
+        run: flutter build web --release
+      
+      # Upload coverage reports
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: coverage/lcov.info
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: true 
